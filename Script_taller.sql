@@ -9,8 +9,8 @@ CREATE DATABASE taller_db;
 
 CREATE TABLE alumno(
 numero_de_cuenta INT NOT NULL PRIMARY KEY,
-primer_apellido CHAR(20) NOT NULL DEFAULT '-',
-segundo_apellido CHAR(20) NULL,
+primer_apellido CHAR(20) NULL DEFAULT '-',
+segundo_apellido CHAR(20) NULL DEFAULT '-',
 nombre CHAR(40) NOT NULL
 );
 
@@ -52,11 +52,11 @@ REFERENCES profesor(id_profesor)
 
 -- Para efectos 'prácticos' eliminamos el usuario en caso de existir
 -- Y configuramos 'de 0'
-DROP USER IF EXISTS user_T;
+DROP USER IF EXISTS user_t;
 
 -- Creamos el usuario
-CREATE USER user_T PASSWORD 'usuario';
+CREATE USER user_t PASSWORD 'usuario';
 
 -- Garantizamos privilegios
-GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO user_T;
-GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO user_T;
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO user_t;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO user_t;
